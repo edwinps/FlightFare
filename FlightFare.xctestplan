@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "63F4322E-1728-4036-9441-B807B9180D16",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:FlightFare.xcodeproj",
+      "identifier" : "5CEA5A382A8B807A008519A6",
+      "name" : "FlightFare"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:FlightFare.xcodeproj",
+        "identifier" : "5CEA5A482A8B807C008519A6",
+        "name" : "FlightFareTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:FlightFare.xcodeproj",
+        "identifier" : "5CEA5A522A8B807C008519A6",
+        "name" : "FlightFareUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

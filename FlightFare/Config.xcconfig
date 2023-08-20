@@ -1,0 +1,15 @@
+//
+//  Config.xcconfig
+//  FlightFare
+//
+//  Created by Edwin Peña Sanchez 
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// Application name
+APPLICATION_NAME = FlightFare
+
+// API endpoint
+API_URL = raw.githubusercontent.com
