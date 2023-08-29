@@ -1,7 +1,7 @@
 # FlightFare
 Write an app that helps users select the most convenient route between our destinations.
  
-Download and parse information from: https://raw.githubusercontent.com/TuiMobilityHub/ios-code-challenge/master/connections.json - The JSON contains a list of flight connections with the relative price and position.
+Download and parse information from: connections.json - The JSON contains a list of flight connections with the relative price and position.
  
 The user should be able to select any departure city and any destination city available (even if a direct connection between the two cities is not available)
  

@@ -12,7 +12,6 @@ struct MapView: UIViewRepresentable {
     @ObservedObject var viewModel: MapViewModel
     var coordinator: Coordinator
     
-    
     class MapCoordinator: NSObject, MKMapViewDelegate {
         var parent: MapView
         

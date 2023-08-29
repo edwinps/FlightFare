@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct ConnectionsListDTO: Codable {
-    let connections: [ConnectionDTO]
-}
-
 struct ConnectionDTO: Codable {
     let from: String
     let to: String

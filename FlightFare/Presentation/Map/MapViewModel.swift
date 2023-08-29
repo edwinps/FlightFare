@@ -9,6 +9,9 @@ import SwiftUI
 import MapKit
 
 class MapViewModel: ObservableObject {
+    var id: String {
+        return "\(centerCoordinate.latitude)-\(centerCoordinate.longitude)-\(annotations.count)-\(routePolylines.count)"
+    }
     @Published var centerCoordinate: CLLocationCoordinate2D = .init(latitude: 0, longitude: 0)
     @Published var annotations = [MKPointAnnotation]()
     @Published var routePolylines = [MKPolyline]()

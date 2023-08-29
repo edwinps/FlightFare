@@ -10,7 +10,6 @@ import MapKit
 
 struct RouteView: View {
     @ObservedObject var viewModel: RouteViewModel
-    @State private var isShowingMap = false
     @EnvironmentObject private var coordinator: Coordinator
     
     var isShowRouteEnabled: Bool {
@@ -58,7 +57,7 @@ private extension RouteView {
     
     var showRouteButton: some View {
         Button("Show Route on Map") {
-            coordinator.presentMap(viewModel: MapViewModel(selectedRoute: viewModel.selectedRoute))
+            coordinator.present(sheet: .mapview(viewModel: MapViewModel(selectedRoute: viewModel.selectedRoute)))
         }
         .disabled(!isShowRouteEnabled)
     }

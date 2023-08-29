@@ -12,4 +12,4 @@
 APPLICATION_NAME = FlightFare
 
 // API endpoint
-API_URL = raw.githubusercontent.com
+API_URL = localhost:8000

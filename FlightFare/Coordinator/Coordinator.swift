@@ -8,36 +8,56 @@
 import SwiftUI
 import Foundation
 
-enum Sheet: String, Identifiable {
-    case mapview
+enum Page: Identifiable, Hashable {
+    case home
+    var id: Self { self }
+}
+
+enum Sheet: Identifiable, Hashable {
+    case mapview(viewModel: MapViewModel)
+    
+    static func == (lhs: Sheet, rhs: Sheet) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
     
     var id: String {
-        self.rawValue
+        switch self {
+        case .mapview(let viewModel):
+            return viewModel.id
+        }
     }
 }
 
 class Coordinator: ObservableObject {
     @Published var path = NavigationPath()
     @Published var sheet: Sheet?
-    @Published var mapViewModel: MapViewModel?
+    private var routeViewModel = RouteViewModel()
     
-    func presentMap(viewModel: MapViewModel) {
-        self.sheet = .mapview
-        self.mapViewModel = viewModel
+    func present(sheet: Sheet) {
+        self.sheet = sheet
     }
 
     func dismiss() {
         self.sheet = nil
     }
     
-    
     @ViewBuilder
-    func buildHome(with viewModel: RouteViewModel) -> some View {
-        RouteView(viewModel: viewModel)
+    func buildPageView(for page: Page) -> some View {
+        switch page {
+        case .home:
+            RouteView(viewModel: routeViewModel)
+        }
     }
     
     @ViewBuilder
-    func buildMap(with viewModel: MapViewModel) -> some View {
-        MapView(viewModel: viewModel, coordinator: self)
+    func buildSheetView(for sheet: Sheet) -> some View {
+        switch sheet {
+        case .mapview(let viewModel):
+            MapView(viewModel: viewModel, coordinator: self)
+        }
     }
 }

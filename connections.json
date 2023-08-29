@@ -1,4 +1,6 @@
-[{
+{
+  "connections": [
+    {
       "from": "London",
       "to": "Tokyo",
       "coordinates": {
@@ -134,3 +136,4 @@
       }
     }
   ]
+}

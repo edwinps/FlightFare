@@ -18,7 +18,6 @@ class CoordinatorViewTests: XCTestCase {
         coordinator = Coordinator()
         routeViewModel = RouteViewModel()
         mapViewModel = MapViewModel(selectedRoute: [])
-        coordinator.mapViewModel = mapViewModel
     }
     
     override func tearDown() {
@@ -29,19 +28,19 @@ class CoordinatorViewTests: XCTestCase {
     }
     
     func testCoordinatorWithRouteView() {
-        let routeView = coordinator.buildHome(with: routeViewModel)
+        let routeView = coordinator.buildPageView(for: .home)
         
         XCTAssertNotNil(routeView)
     }
     
     func testCoordinatorthSheetView() {
-        let sheetView = coordinator.buildMap(with: mapViewModel)
+        let sheetView = coordinator.buildSheetView(for: .mapview(viewModel: mapViewModel))
         
         XCTAssertNotNil(sheetView)
     }
     
     func testCoordinatorDismiss() {
-        coordinator.sheet = .mapview
+        coordinator.sheet = .mapview(viewModel: mapViewModel)
         coordinator.dismiss()
         
         XCTAssertNil(coordinator.sheet)
@@ -49,8 +48,29 @@ class CoordinatorViewTests: XCTestCase {
     
     func testCoordinatorPresent() {
         coordinator.sheet = nil
-        coordinator.presentMap(viewModel: mapViewModel)
+        coordinator.present(sheet: .mapview(viewModel: mapViewModel))
         
         XCTAssertNotNil(coordinator.sheet)
+    }
+    
+    func testSheetHashAndEquality() {
+        let viewModel1 = MapViewModel(selectedRoute: [])
+        let viewModel2 = MapViewModel(selectedRoute: [MockModels.connection])
+        
+        let sheet1 = Sheet.mapview(viewModel: viewModel1)
+        let sheet2 = Sheet.mapview(viewModel: viewModel1)
+        let sheet3 = Sheet.mapview(viewModel: viewModel2)
+        
+        XCTAssertEqual(sheet1, sheet2)
+        XCTAssertEqual(sheet1.hashValue, sheet2.hashValue)
+        XCTAssertNotEqual(sheet1, sheet3)
+    }
+    
+    func testPageHashAndEquality() {
+        let page1 = Page.home
+        let page2 = Page.home
+        
+        XCTAssertEqual(page1, page2)
+        XCTAssertEqual(page1.id, page2.id)
     }
 }

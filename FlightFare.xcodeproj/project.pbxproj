@@ -19,6 +19,8 @@
 		5C369CE92A9227BB004A8ACF /* CoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C369CE82A9227BB004A8ACF /* CoordinatorTest.swift */; };
 		5C456EA52A8D616B00A47639 /* RouteViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C456EA42A8D616B00A47639 /* RouteViewModelTests.swift */; };
 		5C456EA72A8D64A200A47639 /* MockFetchConnectionsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C456EA62A8D64A200A47639 /* MockFetchConnectionsUseCase.swift */; };
+		5C6A32CC2A9E801100F8D12D /* EnvironmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A32CB2A9E801100F8D12D /* EnvironmentTests.swift */; };
+		5C6A32CE2A9E814100F8D12D /* BundleMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A32CD2A9E814100F8D12D /* BundleMock.swift */; };
 		5C77EB6F2A8CF1C80097687C /* RouteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C77EB6E2A8CF1C80097687C /* RouteViewModel.swift */; };
 		5C77EB712A8CF20C0097687C /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C77EB702A8CF20C0097687C /* RouteView.swift */; };
 		5C77EB732A8CF3E60097687C /* RouteFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C77EB722A8CF3E60097687C /* RouteFinder.swift */; };
@@ -71,6 +73,8 @@
 		5C369CE82A9227BB004A8ACF /* CoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTest.swift; sourceTree = "<group>"; };
 		5C456EA42A8D616B00A47639 /* RouteViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewModelTests.swift; sourceTree = "<group>"; };
 		5C456EA62A8D64A200A47639 /* MockFetchConnectionsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFetchConnectionsUseCase.swift; sourceTree = "<group>"; };
+		5C6A32CB2A9E801100F8D12D /* EnvironmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentTests.swift; sourceTree = "<group>"; };
+		5C6A32CD2A9E814100F8D12D /* BundleMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleMock.swift; sourceTree = "<group>"; };
 		5C77EB6E2A8CF1C80097687C /* RouteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewModel.swift; sourceTree = "<group>"; };
 		5C77EB702A8CF20C0097687C /* RouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
 		5C77EB722A8CF3E60097687C /* RouteFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteFinder.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 			children = (
 				5C369CDC2A91F8D4004A8ACF /* Coordinator.swift */,
 				5C369CDE2A91FB00004A8ACF /* CoordinatorView.swift */,
+				5CEA5A6A2A8B8995008519A6 /* Data */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -200,7 +205,6 @@
 			children = (
 				5CEA5A3C2A8B807A008519A6 /* FlightFareApp.swift */,
 				5C369CDB2A91F8C0004A8ACF /* Coordinator */,
-				5CEA5A6A2A8B8995008519A6 /* Data */,
 				5CEA5A692A8B8988008519A6 /* Domain */,
 				5CEA5A682A8B8962008519A6 /* Presentation */,
 				5CEA5A672A8B891A008519A6 /* Info.plist */,
@@ -332,6 +336,7 @@
 			children = (
 				5CEA5A812A8B9215008519A6 /* AsyncResultTests.swift */,
 				5C1871892A8B99800003E685 /* URLSessionAsyncDataTaskTests.swift */,
+				5C6A32CB2A9E801100F8D12D /* EnvironmentTests.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				5C456EA62A8D64A200A47639 /* MockFetchConnectionsUseCase.swift */,
 				5C2AADB32A8D70D900B9AF1B /* MockRouteViewModel.swift */,
 				5C369CE52A92221E004A8ACF /* MockModels.swift */,
+				5C6A32CD2A9E814100F8D12D /* BundleMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -514,8 +520,10 @@
 				5CEA5A8A2A8B938F008519A6 /* MockURLSession.swift in Sources */,
 				5C369CE42A9221A8004A8ACF /* MapViewModelTest.swift in Sources */,
 				5C2AADB42A8D70D900B9AF1B /* MockRouteViewModel.swift in Sources */,
+				5C6A32CE2A9E814100F8D12D /* BundleMock.swift in Sources */,
 				5C456EA52A8D616B00A47639 /* RouteViewModelTests.swift in Sources */,
 				5C2AADAE2A8D6D5A00B9AF1B /* RouteFinderTests.swift in Sources */,
+				5C6A32CC2A9E801100F8D12D /* EnvironmentTests.swift in Sources */,
 				5CEA5A822A8B9215008519A6 /* AsyncResultTests.swift in Sources */,
 				5C456EA72A8D64A200A47639 /* MockFetchConnectionsUseCase.swift in Sources */,
 				5C369CE62A92221E004A8ACF /* MockModels.swift in Sources */,

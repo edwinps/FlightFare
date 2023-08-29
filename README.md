@@ -1,3 +1,8 @@
+```zsh
+npm install -g json-server
+json-server connections.json --port 8000
+```
+
 # FlightFare
 
 The Flight Fare Calculator is an iOS app that aims to find the most economical flight route between two cities based on a given set of flight connections and their prices. This README provides an overview of the solution's architecture, data flow, and key components.

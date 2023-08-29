@@ -38,7 +38,6 @@ final class FlightFareUITests: XCTestCase {
         destinationTextField.typeText("k")
         destinationTextField.typeText("y")
         destinationTextField.typeText("o")
-        destinationTextField.typeText("Tokyo")
         
         calculateButton.tap()
         

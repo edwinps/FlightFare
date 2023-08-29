@@ -13,7 +13,7 @@ protocol FetchConnectionsUseCaseProtocol {
 
 struct FetchConnectionsUseCase: FetchConnectionsUseCaseProtocol {
     private enum constants {
-       static let connectionsPath = "TuiMobilityHub/ios-code-challenge/master/connections.json"
+       static let connectionsPath = "/connections"
     }
     private let urlSession: URLSessionProtocol
     
@@ -23,9 +23,10 @@ struct FetchConnectionsUseCase: FetchConnectionsUseCaseProtocol {
     
     func fetchConnections() async -> AsyncResult<[Connection], Error> {
         do {
-            let data = try await urlSession.asyncDataTask(with: self.connectionsUrl).getData()
-            let connectionsDTO = try JSONDecoder().decode(ConnectionsListDTO.self, from: data)
-            let connections = connectionsDTO.connections.map(transformDTOsToConnections)
+            let connectionsUrl = try Environment.apiUrl().appendingPathComponent(constants.connectionsPath)
+            let data = try await urlSession.asyncDataTask(with: connectionsUrl).getData()
+            let connectionsDTO = try JSONDecoder().decode([ConnectionDTO].self, from: data)
+            let connections = connectionsDTO.map(transformDTOsToConnections)
             return .success(connections)
         } catch {
             return .failure(error)
@@ -34,10 +35,6 @@ struct FetchConnectionsUseCase: FetchConnectionsUseCaseProtocol {
 }
 
 private extension FetchConnectionsUseCase {
-    var connectionsUrl: URL {
-        return Environment.apiUrl.appendingPathComponent(constants.connectionsPath)
-    }
-    
     func transformDTOsToConnections(_ connectionDTO: ConnectionDTO) -> Connection {
         let fromCity = City(name: connectionDTO.from,
                             coordinates: Coordinates(lat: connectionDTO.coordinates.from.lat,
